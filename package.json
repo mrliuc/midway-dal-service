@@ -1,6 +1,6 @@
 {
   "name": "midway-mysql-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dal-helper适配Midway的ORM库",
   "main": "dist/index.js",
   "typings": "index.d.ts",
@@ -17,10 +17,10 @@
   },
   "keywords": [
     "midway",
-    "mssql",
+    "mysql",
     "orm"
   ],
-  "author": "",
+  "author": "mrliuc@qq.com",
   "files": [
     "dist/**/*.js",
     "dist/**/*.d.ts",
