@@ -1,7 +1,7 @@
 {
   "name": "midway-mysql-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "dal-helper适配Midway的ORM库",
   "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -11,7 +11,15 @@
     "lint": "mwts check",
     "lint:fix": "mwts fix"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrliuc/midway-dal-service.git"
+  },
+  "keywords": [
+    "midway",
+    "mssql",
+    "orm"
+  ],
   "author": "",
   "files": [
     "dist/**/*.js",
