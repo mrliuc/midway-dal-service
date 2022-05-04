@@ -293,7 +293,7 @@ export class MySQLService {
     return sql;
   }
 
-  dmls(options): DoAction {
+  dmls<T extends number | any[]>(options): DoAction<T> {
     for (let index = 0; index < options.length; index++) {
       const option = options[index];
       if (!option.DMLType) {
@@ -474,7 +474,7 @@ export class MySQLService {
     // Object.keys(newOptions).forEach(function)
 
     // console.log(options);
-    return new DoAction(this.getDrive(), options);
+    return new DoAction<T>(this.getDrive(), options);
   }
 
   static formatWheres(option, param, index) {
@@ -515,9 +515,9 @@ export class MySQLService {
     return whereStr;
   }
 
-  select(option): DoAction {
+  select(option): DoAction<any[]> {
     option.DMLType = DMLType.SELECT;
-    return this.dmls([option]);
+    return this.dmls<any[]>([option]);
     // console.log(param);
   }
 
@@ -526,9 +526,9 @@ export class MySQLService {
   //    table: 'Test'
   // };
 
-  insert(option) {
+  insert<T extends number | any[]>(option) {
     option.DMLType = DMLType.INSERT;
-    return this.dmls([option]);
+    return this.dmls<T>([option]);
   }
 
   // var option = {
@@ -540,12 +540,12 @@ export class MySQLService {
 
   update(option) {
     option.DMLType = DMLType.UPDATE;
-    return this.dmls([option]);
+    return this.dmls<number>([option]);
   }
 
   updateOrInsert(option) {
     option.DMLType = DMLType.UPDATE_INSERT;
-    return this.dmls([option]);
+    return this.dmls<number>([option]);
   }
 
   // var option = {
@@ -555,15 +555,15 @@ export class MySQLService {
   // };
   delete(option) {
     option.DMLType = DMLType.DELETE;
-    return this.dmls([option]);
+    return this.dmls<number>([option]);
   }
 
   count(option) {
     option.DMLType = DMLType.COUNT;
-    return this.dmls([option]);
+    return this.dmls<any[]>([option]);
   }
 
   sql(option) {
-    return new DoAction(this.getDrive(), [option]);
+    return new DoAction<any[]>(this.getDrive(), [option]);
   }
 }

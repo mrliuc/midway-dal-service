@@ -18,7 +18,7 @@ export class Drive {
   //   private query: any;
   //   private proc: any;
 
-  async exec(options, callback): Promise<number | Array<any>> {
+  async exec<T extends number | any[]>(options, callback): Promise<T> {
     const results = [];
     let affected = 0;
 
@@ -84,12 +84,12 @@ export class Drive {
           }
 
           if (results.length === 0) {
-            return resolve(affected);
+            return resolve(affected as T);
           }
           if (results.length === 1) {
             return resolve(results[0]);
           }
-          return resolve(results);
+          return resolve(results as T);
         });
       });
     } catch (err) {

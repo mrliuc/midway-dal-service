@@ -1,6 +1,6 @@
 import { Drive } from './Drive';
 
-export class DoAction {
+export class DoAction<T extends number | any[]> {
   constructor(drive: Drive, options) {
     this.drive = drive;
     this.options = options;
@@ -15,7 +15,7 @@ export class DoAction {
     }
 
     Error.captureStackTrace(this);
-    return this.drive.exec(this.options, callback).catch(err => {
+    return this.drive.exec<T>(this.options, callback).catch(err => {
       //   if (err) {
       // eslint-disable-next-line no-param-reassign
       // err.stack += `\n-----------------------\n${this.stack}`;
