@@ -1,6 +1,6 @@
 {
   "name": "midway-mysql-service",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "dal-helper适配Midway的ORM库",
   "main": "dist/index.js",
   "typings": "index.d.ts",

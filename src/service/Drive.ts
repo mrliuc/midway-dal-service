@@ -143,7 +143,7 @@ export class Drive {
     });
   }
 
-  async _proc(sql, inputParams, callback) {
+  async proc(sql, inputParams, callback): Promise<any> {
     let connection;
 
     try {

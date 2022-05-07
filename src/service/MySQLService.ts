@@ -20,7 +20,7 @@ export class MySQLService {
   @Config('MySQLService')
   config;
 
-  private mysql: any;
+  private mysql: Drive;
 
   _test(val) {
     return val;
@@ -565,5 +565,9 @@ export class MySQLService {
 
   sql(option) {
     return new DoAction<any[]>(this.getDrive(), [option]);
+  }
+
+  proc(sql, inputParams, callback = null) {
+    return this.getDrive().proc(sql, inputParams, callback);
   }
 }
